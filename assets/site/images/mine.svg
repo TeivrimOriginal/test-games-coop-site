@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Глубокая шахта</title>
+  <desc id="desc">Тёмный тоннель с деревянными опорами, рельсами, вагонеткой и угольным фонарём.</desc>
+  <defs>
+    <radialGradient id="cave" cx="50%" cy="52%" r="68%">
+      <stop offset="0" stop-color="#3a3128"/>
+      <stop offset=".36" stop-color="#171917"/>
+      <stop offset="1" stop-color="#050706"/>
+    </radialGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#151816"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <linearGradient id="tunnel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#080a09"/>
+      <stop offset=".5" stop-color="#24211d"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <radialGradient id="lantern" cx="50%" cy="45%" r="50%">
+      <stop offset="0" stop-color="#fff0b3" stop-opacity=".5"/>
+      <stop offset=".22" stop-color="#efb84f" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#efb84f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ore" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#171d1c"/>
+      <stop offset=".48" stop-color="#4d5955"/>
+      <stop offset=".52" stop-color="#141918"/>
+      <stop offset="1" stop-color="#080b0a"/>
+    </linearGradient>
+    <filter id="glow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="18" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".48" numOctaves="4" seed="8" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="m"/>
+      <feComponentTransfer in="m" result="f"><feFuncA type="table" tableValues="0 .075"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="f" mode="screen"/>
+    </filter>
+    <pattern id="rock" width="160" height="120" patternUnits="userSpaceOnUse">
+      <path d="m0 28 37-21 36 14 41-17 46 28M0 91l42-16 38 12 38-17 42 20" fill="none" stroke="#74746a" stroke-opacity=".06" stroke-width="2"/>
+      <path d="m20 60 31-11 28 15M104 73l28-9 22 12" fill="none" stroke="#000" stroke-opacity=".4" stroke-width="3"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#cave)"/>
+  <path d="M0 0h1600v270c-220 45-336-28-542 4-226 36-290 82-484 70-172-11-249-93-574-17Z" fill="#080a09"/>
+  <path d="M0 0h1600v190c-232 66-414 26-590 58-168 31-323 91-497 62-221-37-315-66-513-23Z" fill="url(#rock)"/>
+
+  <!-- cavern walls -->
+  <path d="M0 0h270l104 82 77 120 92 127 61 214-97 238-130 154L0 1100Z" fill="#0b0e0c"/>
+  <path d="M0 0h270l104 82 77 120 92 127 61 214-97 238-130 154L0 1100Z" fill="url(#rock)"/>
+  <path d="M1600 0h-284l-99 103-76 143-70 117-25 202 104 248 156 144 294 143Z" fill="#090c0a"/>
+  <path d="M1600 0h-284l-99 103-76 143-70 117-25 202 104 248 156 144 294 143Z" fill="url(#rock)"/>
+
+  <!-- layered tunnel arches -->
+  <g fill="none" stroke-linecap="square">
+    <path d="M147 1100V507c0-278 236-407 512-407h330c274 0 475 123 475 392v608" stroke="#171b18" stroke-width="72"/>
+    <path d="M191 1100V518c0-244 215-361 466-361h326c246 0 426 107 426 354v589" stroke="#50483d" stroke-opacity=".58" stroke-width="15"/>
+    <path d="M252 1100V530c0-202 183-302 397-302h383c209 0 358 99 358 301v571" stroke="#777064" stroke-opacity=".35" stroke-width="8"/>
+    <path d="M333 1100V548c0-161 152-250 348-250h363c180 0 295 87 295 247v555" stroke="#24251f" stroke-width="51"/>
+    <path d="M355 1100V553c0-151 145-233 331-233h365c173 0 279 80 279 232v548" stroke="#615949" stroke-opacity=".42" stroke-width="7"/>
+  </g>
+
+  <!-- ceiling stalactites -->
+  <g fill="#070a08">
+    <path d="m272 404 26 139 31-146Z"/>
+    <path d="m460 265 21 115 34-126Z"/>
+    <path d="m726 196 18 101 31-110Z"/>
+    <path d="m1005 250 29 130 30-143Z"/>
+    <path d="m1267 336 28 160 36-178Z"/>
+    <path d="m1138 215 16 92 28-104Z"/>
+  </g>
+
+  <!-- wooden supports -->
+  <g>
+    <g transform="translate(120 305) skewX(-8)">
+      <path d="M0 0h55v630H0Z" fill="#211a14"/>
+      <path d="M55 0h18v630H55Z" fill="#4a3827"/>
+      <path d="m0 0 360 73-4 35L0 36Z" fill="#3c2d20"/>
+      <path d="m0 585 354-9v38L0 627Z" fill="#2c2118"/>
+      <path d="M6 0h11v620H6ZM48 3h8v620h-8Z" fill="#6b5136" opacity=".45"/>
+    </g>
+    <g transform="translate(1340 305) skewX(8) scale(-1 1)">
+      <path d="M0 0h55v630H0Z" fill="#211a14"/>
+      <path d="M55 0h18v630H55Z" fill="#4a3827"/>
+      <path d="m0 0 360 73-4 35L0 36Z" fill="#3c2d20"/>
+      <path d="m0 585 354-9v38L0 627Z" fill="#2c2118"/>
+      <path d="M6 0h11v620H6ZM48 3h8v620h-8Z" fill="#6b5136" opacity=".45"/>
+    </g>
+  </g>
+
+  <!-- distant gate -->
+  <g>
+    <path d="M579 1000V581c0-174 129-248 283-248s283 74 283 248v419Z" fill="#050706"/>
+    <path d="M610 1000V591c0-153 108-220 252-220s252 67 252 220v409" fill="none" stroke="#393c34" stroke-width="16"/>
+    <path d="M662 1000V606c0-111 72-169 200-169s200 58 200 169v394" fill="none" stroke="#5d5a4e" stroke-opacity=".4" stroke-width="5"/>
+    <path d="M680 280v720M850 241v759M1020 280v720" stroke="#0c100d" stroke-width="25"/>
+    <path d="M662 402h377M635 576h431M616 775h469" stroke="#0e120f" stroke-width="22"/>
+    <path d="M802 461h97v55h-97Z" fill="#8a2b22" opacity=".4"/>
+    <path d="M824 488h56" stroke="#c54b39" stroke-width="3" opacity=".6"/>
+  </g>
+
+  <!-- rails -->
+  <path d="M507 1100 748 609M1094 1100 855 609" stroke="#252a26" stroke-width="18"/>
+  <path d="M507 1100 748 609M1094 1100 855 609" stroke="#777970" stroke-opacity=".45" stroke-width="4"/>
+  <g stroke="#1c211e" stroke-width="18">
+    <path d="M471 1070h686M501 980h621M533 889h554M565 800h488M600 718h414M635 650h339"/>
+  </g>
+  <g stroke="#565951" stroke-opacity=".24" stroke-width="3">
+    <path d="M471 1063h686M501 973h621M533 882h554M565 793h488M600 711h414M635 643h339"/>
+  </g>
+
+  <!-- cart -->
+  <g transform="translate(555 730)">
+    <ellipse cx="154" cy="226" rx="190" ry="38" fill="#000" opacity=".55" filter="url(#blur)"/>
+    <path d="M22 53h270l-35 160H63Z" fill="#1b211e" stroke="#4b5048" stroke-width="7"/>
+    <path d="M45 72h223l-22 94H67Z" fill="#0a0d0b"/>
+    <path d="M77 166 52 214M223 166l27 48" stroke="#31362f" stroke-width="15"/>
+    <g fill="#070a08" stroke="#464c45" stroke-width="5">
+      <circle cx="65" cy="222" r="24"/>
+      <circle cx="243" cy="222" r="24"/>
+    </g>
+    <path d="m64 31 17-46h166l22 46Z" fill="#292c25"/>
+    <path d="M87 1h168l9 30H79Z" fill="#080a09"/>
+    <g fill="#353b36" stroke="#111512" stroke-width="2">
+      <path d="m105 5 33-18 28 26 25-28 36 22 10 24H96Z"/>
+      <circle cx="120" cy="2" r="17"/>
+      <circle cx="165" cy="3" r="15"/>
+      <circle cx="204" cy="4" r="19"/>
+    </g>
+  </g>
+
+  <!-- floor and foreground coal -->
+  <path d="M0 901c288-24 430 19 661 0s469-48 939-10v209H0Z" fill="url(#floor)"/>
+  <path d="M0 949c335-11 530 18 746-1 300-27 528-12 854 7v145H0Z" fill="url(#rock)" opacity=".7"/>
+  <g fill="#080b09" stroke="#3a413b" stroke-opacity=".25" stroke-width="3">
+    <path d="m72 975 74-41 70 34-36 65-99-10Z"/>
+    <path d="m1375 965 78-52 93 43-40 65-102 5Z"/>
+    <path d="m283 1050 47-28 62 24-18 40-75 8Z"/>
+    <path d="m1200 1038 54-31 55 20-15 50-77 3Z"/>
+  </g>
+
+  <!-- lantern figure -->
+  <g transform="translate(1080 628)">
+    <circle cx="45" cy="115" r="175" fill="url(#lantern)" filter="url(#blur)"/>
+    <ellipse cx="45" cy="111" rx="78" ry="105" fill="url(#lantern)"/>
+    <circle cx="45" cy="106" r="8" fill="#ffe6a1" filter="url(#glow)"/>
+    <path d="M45 33v145" stroke="#090b09" stroke-width="9"/>
+    <path d="M28 60h34l11 47-28 30-28-30Z" fill="#171711" stroke="#856f37" stroke-width="4"/>
+    <path d="M34 68h22l6 34-17 20-17-20Z" fill="#e7bc62" opacity=".8"/>
+    <path d="M27 57h36" stroke="#a88944" stroke-width="5"/>
+    <circle cx="45" cy="99" r="58" fill="#e5b452" opacity=".07" filter="url(#blur)"/>
+  </g>
+
+  <!-- dust -->
+  <g fill="#c7bda2" opacity=".25">
+    <circle cx="312" cy="620" r="2"/><circle cx="428" cy="563" r="1.4"/><circle cx="745" cy="542" r="2"/>
+    <circle cx="1190" cy="571" r="1.5"/><circle cx="1320" cy="681" r="2"/><circle cx="520" cy="678" r="1.2"/>
+  </g>
+  <path d="M488 1022c118-64 239-85 359-76 167 13 285 8 457-21" fill="none" stroke="#a9a18d" stroke-opacity=".12" stroke-width="35" filter="url(#blur)"/>
+
+  <!-- red danger light -->
+  <circle cx="1430" cy="358" r="8" fill="#e43a2e" filter="url(#glow)"/>
+  <circle cx="1430" cy="358" r="54" fill="#e43a2e" opacity=".12" filter="url(#blur)"/>
+  <path d="M1430 258v101" stroke="#252c27" stroke-width="5"/>
+
+  <rect width="1600" height="1100" fill="transparent" filter="url(#grain)"/>
+  <rect x="16" y="16" width="1568" height="1068" fill="none" stroke="#b7b8af" stroke-opacity=".06" stroke-width="2"/>
+</svg>

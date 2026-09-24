@@ -1,0 +1,225 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Холодный склад-рефрижератор</title>
+  <desc id="desc">Длинный ледяной коридор с подвесными тушами, металлическими стеллажами и красным аварийным светом.</desc>
+  <defs>
+    <linearGradient id="cold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#131b1e"/>
+      <stop offset=".5" stop-color="#253136"/>
+      <stop offset="1" stop-color="#0b1113"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#576267"/>
+      <stop offset=".45" stop-color="#222d30"/>
+      <stop offset="1" stop-color="#0b1113"/>
+    </linearGradient>
+    <linearGradient id="door" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#080b0c"/>
+      <stop offset=".55" stop-color="#2b3539"/>
+      <stop offset="1" stop-color="#141b1e"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0a1012"/>
+      <stop offset=".5" stop-color="#4e5a5e"/>
+      <stop offset="1" stop-color="#101719"/>
+    </linearGradient>
+    <linearGradient id="meat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7f7770"/>
+      <stop offset=".4" stop-color="#a59b8b"/>
+      <stop offset=".62" stop-color="#625953"/>
+      <stop offset="1" stop-color="#2d2a29"/>
+    </linearGradient>
+    <radialGradient id="redlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ff4a35" stop-opacity=".42"/>
+      <stop offset=".25" stop-color="#d62c22" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#c42720" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="coldlight" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#d9eff2" stop-opacity=".19"/>
+      <stop offset="1" stop-color="#bddde1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="25"/>
+    </filter>
+    <filter id="glow" x="-200%" y="-200%" width="500%" height="500%">
+      <feGaussianBlur stdDeviation="11" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".38" numOctaves="4" seed="21" result="n"/>
+      <feColorMatrix in="n" type="saturate" values="0" result="m"/>
+      <feComponentTransfer in="m" result="f"><feFuncA type="table" tableValues="0 .085"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="f" mode="screen"/>
+    </filter>
+    <pattern id="tile" width="100" height="70" patternUnits="userSpaceOnUse">
+      <rect width="100" height="70" fill="none"/>
+      <path d="M100 0H0v70" fill="none" stroke="#c3d0d0" stroke-opacity=".08" stroke-width="2"/>
+    </pattern>
+    <pattern id="ice" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="m0 32 18-28 8 21L42 0M7 42 20 19 33 42" fill="none" stroke="#d5ebee" stroke-opacity=".04" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1100" fill="url(#cold)"/>
+  <rect width="1600" height="1100" fill="url(#ice)"/>
+
+  <!-- ceiling and perspective -->
+  <path d="M0 0h1600L1070 440H530Z" fill="#11191c"/>
+  <path d="M0 0h1600L1090 424H510Z" fill="url(#tile)"/>
+  <g fill="none" stroke="#4a595d" stroke-width="7">
+    <path d="M0 50 552 440M280 0 617 440M640 0 722 440M960 0 826 440M1290 0 929 440M1600 52 1050 440"/>
+  </g>
+  <g stroke="#77878a" stroke-opacity=".3" stroke-width="3">
+    <path d="M0 112h1600M0 251h1600"/>
+  </g>
+
+  <!-- side walls -->
+  <path d="M0 0 530 440v215L0 1100Z" fill="#1d282b"/>
+  <path d="M1600 0 1070 440v215l530 445Z" fill="#182225"/>
+  <path d="M0 0 530 440v215L0 1100Z" fill="url(#tile)"/>
+  <path d="M1600 0 1070 440v215l530 445Z" fill="url(#tile)"/>
+  <g fill="none" stroke="#435154" stroke-width="12">
+    <path d="M0 130 530 470M0 304 530 520M0 482 530 574M0 668 530 630"/>
+    <path d="M1600 130 1070 470M1600 304 1070 520M1600 482 1070 574M1600 668 1070 630"/>
+  </g>
+  <g fill="none" stroke="#829094" stroke-opacity=".26" stroke-width="3">
+    <path d="M0 137 530 477M0 311 530 527M0 489 530 581M0 675 530 637"/>
+    <path d="M1600 137 1070 477M1600 311 1070 527M1600 489 1070 581M1600 675 1070 637"/>
+  </g>
+
+  <!-- far cold-room door -->
+  <g>
+    <path d="M620 692V500c0-130 72-190 180-190s180 60 180 190v192Z" fill="#080d0e"/>
+    <path d="M653 680V510c0-111 61-166 147-166s147 55 147 166v170Z" fill="url(#door)" stroke="#607074" stroke-width="8"/>
+    <path d="M800 357v323" stroke="#080c0d" stroke-width="12"/>
+    <path d="M800 358c-130 0-147 70-147 152s17 170 147 170 147-88 147-170-17-152-147-152Z" fill="none" stroke="#9ca9a9" stroke-opacity=".1" stroke-width="5"/>
+    <rect x="748" y="429" width="105" height="34" fill="#171f21" stroke="#637074"/>
+    <path d="M765 446h70" stroke="#a7b2b2" stroke-opacity=".35" stroke-width="3"/>
+    <path d="M666 575h269" stroke="#8e9a99" stroke-opacity=".25" stroke-width="3"/>
+  </g>
+
+  <!-- floor -->
+  <path d="M0 1100 530 654h540l530 446Z" fill="url(#floor)"/>
+  <path d="M0 1100 530 654h540l530 446Z" fill="url(#tile)"/>
+  <g fill="none" stroke="#9aabad" stroke-opacity=".16" stroke-width="4">
+    <path d="M800 654 236 1100M800 654 465 1100M800 654 658 1100M800 654v446M800 654l142 446M800 654l335 446M800 654l564 446"/>
+  </g>
+  <path d="M0 938c311-46 501-12 711-21 218-10 511-35 889 16v167H0Z" fill="#c4d8d8" opacity=".055" filter="url(#blur)"/>
+
+  <!-- overhead rails -->
+  <g stroke="#182225" stroke-width="16">
+    <path d="M0 190 600 458M1600 190 1000 458M0 405 600 493M1600 405 1000 493"/>
+  </g>
+  <g stroke="#879598" stroke-opacity=".35" stroke-width="3">
+    <path d="M0 182 600 450M1600 182 1000 450M0 397 600 485M1600 397 1000 485"/>
+  </g>
+
+  <!-- hanging racks -->
+  <g stroke="#161e20" stroke-width="5">
+    <path d="M0 240v820M242 337v685M466 421v550M650 479v455"/>
+    <path d="M1600 240v820M1358 337v685M1134 421v550M950 479v455"/>
+  </g>
+  <g stroke="#768386" stroke-opacity=".38" stroke-width="2">
+    <path d="M7 240v820M249 337v685M473 421v550M657 479v455"/>
+    <path d="M1593 240v820M1351 337v685M1127 421v550M943 479v455"/>
+  </g>
+
+  <!-- hanging carcass shapes -->
+  <g stroke="#4c4540" stroke-width="3">
+    <!-- left foreground -->
+    <g>
+      <path d="M35 330v68" stroke="#151b1d" stroke-width="8"/>
+      <path d="M0 395c48 16 90 0 108 35 20 38-8 76 12 112 18 33 58 29 68 69 8 33-23 58-45 74-36 26-65 61-61 104H0Z" fill="url(#meat)" opacity=".88"/>
+      <path d="M22 430c38 15 48 35 29 68-18 32-6 70-33 94M84 478c28 34 15 73 48 98" fill="none" stroke="#c0b6a4" stroke-opacity=".28" stroke-width="5"/>
+      <circle cx="31" cy="783" r="12" fill="#8b8275"/>
+    </g>
+    <!-- left middle -->
+    <g>
+      <path d="M237 422v47" stroke="#151b1d" stroke-width="7"/>
+      <path d="M196 468c35 9 60-2 76 23 16 26 1 53 13 76 12 25 38 27 40 55 1 21-17 34-34 47-25 19-39 43-39 73h-76V476Z" fill="url(#meat)" opacity=".72"/>
+      <path d="M215 497c24 11 29 28 16 48-14 22-6 43-22 59" fill="none" stroke="#c8bdae" stroke-opacity=".23" stroke-width="4"/>
+    </g>
+    <!-- left far -->
+    <g>
+      <path d="M460 489v30" stroke="#151b1d" stroke-width="5"/>
+      <path d="M437 518c24 5 39-3 50 14 10 17 2 35 11 50 8 14 25 18 25 37 0 14-12 23-22 31-16 12-25 28-25 47h-49V521Z" fill="url(#meat)" opacity=".57"/>
+    </g>
+
+    <!-- right foreground -->
+    <g>
+      <path d="M1565 330v68" stroke="#151b1d" stroke-width="8"/>
+      <path d="M1600 395c-48 16-90 0-108 35-20 38 8 76-12 112-18 33-58 29-68 69-8 33 23 58 45 74 36 26 65 61 61 104h82Z" fill="url(#meat)" opacity=".88"/>
+      <path d="M1578 430c-38 15-48 35-29 68 18 32 6 70 33 94M1516 478c-28 34-15 73-48 98" fill="none" stroke="#c0b6a4" stroke-opacity=".28" stroke-width="5"/>
+      <circle cx="1569" cy="783" r="12" fill="#8b8275"/>
+    </g>
+    <!-- right middle -->
+    <g>
+      <path d="M1363 422v47" stroke="#151b1d" stroke-width="7"/>
+      <path d="M1404 468c-35 9-60-2-76 23-16 26-1 53-13 76-12 25-38 27-40 55-1 21 17 34 34 47 25 19 39 43 39 73h76V476Z" fill="url(#meat)" opacity=".72"/>
+      <path d="M1385 497c-24 11-29 28-16 48 14 22 6 43 22 59" fill="none" stroke="#c8bdae" stroke-opacity=".23" stroke-width="4"/>
+    </g>
+    <!-- right far -->
+    <g>
+      <path d="M1140 489v30" stroke="#151b1d" stroke-width="5"/>
+      <path d="M1163 518c-24 5-39-3-50 14-10 17-2 35-11 50-8 14-25 18-25 37 0 14 12 23 22 31 16 12 25 28 25 47h49V521Z" fill="url(#meat)" opacity=".57"/>
+    </g>
+  </g>
+
+  <!-- far hanging shapes -->
+  <g fill="url(#meat)" opacity=".42">
+    <path d="M631 509c18 4 32-1 41 13 8 15 0 29 8 41 7 12 19 14 18 29 0 10-10 15-17 23-12 10-16 22-16 38h-44V511Z"/>
+    <path d="M969 509c-18 4-32-1-41 13-8 15 0 29-8 41-7 12-19 14-18 29 0 10 10 15 17 23 12 10 16 22 16 38h44V511Z"/>
+  </g>
+
+  <!-- shelving units -->
+  <g>
+    <g transform="translate(300 635)">
+      <path d="M0 0h290l-22 44H12Z" fill="#293337" stroke="#637175" stroke-width="5"/>
+      <path d="M18 44h235v70H18Z" fill="#0c1214" stroke="#4c5b5f" stroke-width="5"/>
+      <path d="M33 55h205v47H33Z" fill="#7b8077" opacity=".45"/>
+      <path d="M0 0v270M290 0v270M15 269h260" stroke="#334146" stroke-width="11"/>
+      <g fill="#252b2b">
+        <rect x="52" y="6" width="58" height="25"/><rect x="132" y="13" width="44" height="18"/><rect x="199" y="4" width="54" height="27"/>
+      </g>
+    </g>
+    <g transform="translate(1010 635)">
+      <path d="M0 0h290l-22 44H12Z" fill="#293337" stroke="#637175" stroke-width="5"/>
+      <path d="M18 44h235v70H18Z" fill="#0c1214" stroke="#4c5b5f" stroke-width="5"/>
+      <path d="M33 55h205v47H33Z" fill="#7b8077" opacity=".45"/>
+      <path d="M0 0v270M290 0v270M15 269h260" stroke="#334146" stroke-width="11"/>
+      <g fill="#252b2b">
+        <rect x="39" y="7" width="48" height="23"/><rect x="111" y="4" width="71" height="27"/><rect x="205" y="10" width="54" height="21"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- loose pallet -->
+  <g transform="translate(635 890) rotate(-4)">
+    <path d="M0 0h326l-26 61H21Z" fill="#4c4638"/>
+    <path d="M22 23h280M31 47h260" stroke="#161b19" stroke-width="8"/>
+    <path d="M52 61v54M272 61v54" stroke="#292c25" stroke-width="15"/>
+  </g>
+
+  <!-- emergency red light -->
+  <ellipse cx="800" cy="332" rx="330" ry="190" fill="url(#redlight)"/>
+  <circle cx="800" cy="331" r="12" fill="#ff4a35" filter="url(#glow)"/>
+  <path d="M800 278v55" stroke="#1b2224" stroke-width="8"/>
+
+  <!-- white cold lamps -->
+  <g>
+    <ellipse cx="331" cy="236" rx="185" ry="115" fill="url(#coldlight)"/>
+    <ellipse cx="1269" cy="236" rx="185" ry="115" fill="url(#coldlight)"/>
+    <ellipse cx="800" cy="502" rx="120" ry="65" fill="url(#coldlight)"/>
+    <path d="M265 225h132l-17 13H282ZM1203 225h132l-17 13h-98ZM760 492h80l-8 8h-64Z" fill="#b6cacc" opacity=".45"/>
+  </g>
+
+  <!-- fog and ice crystals -->
+  <g opacity=".3">
+    <circle cx="534" cy="714" r="2" fill="#e1f0f0"/><circle cx="648" cy="767" r="1.5" fill="#e1f0f0"/>
+    <circle cx="930" cy="730" r="2" fill="#e1f0f0"/><circle cx="1060" cy="813" r="1.5" fill="#e1f0f0"/>
+    <circle cx="740" cy="855" r="2" fill="#e1f0f0"/><circle cx="874" cy="889" r="1" fill="#e1f0f0"/>
+  </g>
+  <path d="M268 1000c181-37 306-27 485-10 171 16 345-9 580 10v100H268Z" fill="#d8edef" opacity=".055" filter="url(#blur)"/>
+
+  <rect width="1600" height="1100" fill="transparent" filter="url(#grain)"/>
+  <rect x="16" y="16" width="1568" height="1068" fill="none" stroke="#c3d0d1" stroke-opacity=".07" stroke-width="2"/>
+</svg>

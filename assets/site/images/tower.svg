@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Небоскрёб во время ночной смены</title>
+  <desc id="desc">Тёмный небоскрёб с красным сигнальным огнём, прожекторами и туманом.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#070909"/>
+      <stop offset=".48" stop-color="#151816"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <radialGradient id="horizon" cx="50%" cy="62%" r="58%">
+      <stop offset="0" stop-color="#823327" stop-opacity=".38"/>
+      <stop offset=".52" stop-color="#3b201c" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#050605" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1111"/>
+      <stop offset=".48" stop-color="#202925"/>
+      <stop offset=".55" stop-color="#111615"/>
+      <stop offset="1" stop-color="#070a09"/>
+    </linearGradient>
+    <linearGradient id="glassSide" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#242a27"/>
+      <stop offset="1" stop-color="#080a09"/>
+    </linearGradient>
+    <linearGradient id="fog" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#99a19a" stop-opacity="0"/>
+      <stop offset=".65" stop-color="#8d9690" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#b2bab4" stop-opacity=".03"/>
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e9e6dc" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#d9ded9" stop-opacity=".11"/>
+      <stop offset="1" stop-color="#e9e6dc" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="windows" width="42" height="50" patternUnits="userSpaceOnUse">
+      <rect x="5" y="5" width="26" height="34" fill="#111614"/>
+      <path d="M5 22h26M18 5v34" stroke="#43504a" stroke-opacity=".34" stroke-width="2"/>
+      <rect x="7" y="7" width="5" height="13" fill="#9da38d" opacity=".09"/>
+    </pattern>
+    <pattern id="windowsDim" width="30" height="36" patternUnits="userSpaceOnUse">
+      <rect x="4" y="4" width="18" height="24" fill="#0b0f0d"/>
+      <path d="M4 16h18M13 4v24" stroke="#343d38" stroke-width="1.3"/>
+    </pattern>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+    <filter id="smallGlow" x="-300%" y="-300%" width="700%" height="700%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".55" numOctaves="3" seed="14" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer in="mono" result="faded"><feFuncA type="table" tableValues="0 .07"/></feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="faded" mode="screen"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1500" fill="url(#sky)"/>
+  <rect width="1200" height="1500" fill="url(#horizon)"/>
+
+  <g opacity=".26" filter="url(#soft)">
+    <path d="M-120 270C190 75 365 355 640 190s474-81 750-70v-250H-120Z" fill="#434a46"/>
+    <path d="M-80 670c260-160 398 96 620-40s460-55 730 53v-140c-310-110-470 2-713 83S128 540-80 635Z" fill="#6b2a23"/>
+  </g>
+
+  <!-- distant skyline -->
+  <g opacity=".48">
+    <path d="M0 1115V660h120v455h58V545h146v570h42V720h85v395h67V486h120v629h51V635h165v480h55V760h88v355h44V578h142v537h68V690h104v425h99V610h128v505h106V540h96v575h102V710h76v405h57V640h129v475h92V575h84v540h50V697h81v418h98V646h104v469h70V710h60v405h58V578h113v537h72V670h98v445h38v385H0Z" fill="#0b0e0c"/>
+    <path d="M0 1115V660h120v455h58V545h146v570h42V720h85v395h67V486h120v629h51V635h165v480h55V760h88v355h44V578h142v537h68V690h104v425h99V610h128v505h106V540h96v575h102V710h76v405h57V640h129v475h92V575h84v540h50V697h81v418h98V646h104v469h70V710h60v405h58V578h113v537h72V670h98v445h38v385H0Z" fill="url(#windowsDim)" opacity=".7"/>
+  </g>
+
+  <!-- left tower -->
+  <g>
+    <path d="M34 1500V510l245-74 71 1064Z" fill="#101411"/>
+    <path d="M34 1500V510l245-74 24 1064Z" fill="url(#windows)" opacity=".58"/>
+    <path d="m279 436 71 1064h31L306 414Z" fill="#050706"/>
+    <path d="M34 551 306 458" stroke="#39423d" stroke-width="4"/>
+  </g>
+
+  <!-- central skyscraper -->
+  <g>
+    <path d="M326 1500 413 290l384-185 170 1395Z" fill="url(#glassSide)"/>
+    <path d="m326 1500 87-1210 384-185 73 1395Z" fill="url(#glass)"/>
+    <path d="m326 1500 87-1210 384-185 73 1395Z" fill="url(#windows)" opacity=".92"/>
+    <path d="M370 1500 427 355 797 120l57 1380Z" fill="#0a0e0c" opacity=".46"/>
+    <path d="m413 290 384-185v56L435 358Z" fill="#242b27"/>
+    <path d="M443 388 784 192" stroke="#667069" stroke-opacity=".2" stroke-width="3"/>
+
+    <!-- structural ribs -->
+    <g fill="none" stroke="#58615b" stroke-opacity=".24" stroke-width="6">
+      <path d="M351 1478 432 326"/>
+      <path d="M408 1500 477 300"/>
+      <path d="M493 1500 543 267"/>
+      <path d="M598 1500 627 235"/>
+      <path d="M720 1500 723 177"/>
+    </g>
+
+    <!-- lit floors -->
+    <g opacity=".75">
+      <path d="M467 623 760 447v47l-293 176Z" fill="#b0b5a0" opacity=".12"/>
+      <path d="M446 905 795 697v38l-349 207Z" fill="#7d8880" opacity=".12"/>
+      <path d="M409 1221 840 966v50l-431 256Z" fill="#9ca69b" opacity=".08"/>
+    </g>
+    <g fill="#d6b964" opacity=".5">
+      <rect x="519" y="700" width="8" height="18" transform="rotate(-22 519 700)"/>
+      <rect x="625" y="608" width="9" height="20" transform="rotate(-22 625 608)"/>
+      <rect x="682" y="830" width="7" height="16" transform="rotate(-22 682 830)"/>
+      <rect x="579" y="1012" width="8" height="18" transform="rotate(-22 579 1012)"/>
+      <rect x="736" y="1093" width="7" height="18" transform="rotate(-22 736 1093)"/>
+    </g>
+  </g>
+
+  <!-- right structures -->
+  <g>
+    <path d="m858 1500 61-900 138-97 67 997Z" fill="#0b100e"/>
+    <path d="m858 1500 61-900 138-97 67 997Z" fill="url(#windowsDim)" opacity=".8"/>
+    <path d="m1057 1500 18-530 122-90 24 620Z" fill="#111613"/>
+    <path d="m1057 1500 18-530 122-90 24 620Z" fill="url(#windows)" opacity=".45"/>
+  </g>
+
+  <!-- antenna and alarm -->
+  <g>
+    <path d="M797 105V45M760 105h74" stroke="#737b75" stroke-width="8"/>
+    <path d="m797 46-35 58h70Z" fill="none" stroke="#59615b" stroke-width="5"/>
+    <path d="M797 25v40M754 105h86" stroke="#808780" stroke-width="4"/>
+    <circle cx="797" cy="21" r="8" fill="#ff3928" filter="url(#smallGlow)"/>
+    <circle cx="797" cy="21" r="24" fill="#e43a2e" opacity=".1" filter="url(#soft)"/>
+  </g>
+
+  <!-- cables and facade damage -->
+  <g fill="none" stroke="#89918b" stroke-opacity=".17">
+    <path d="M272 456c-95 21-113 103-178 128" stroke-width="5"/>
+    <path d="M827 241c120 45 103 165 197 214" stroke-width="4"/>
+    <path d="M548 517 521 657l-44 18 34 64-56 124 18 73-63 176" stroke-width="2"/>
+  </g>
+
+  <!-- light beams -->
+  <path d="M260 1500 0 838v246Z" fill="url(#beam)" opacity=".7"/>
+  <path d="m950 1500 250-487v193Z" fill="url(#beam)" opacity=".45"/>
+  <ellipse cx="104" cy="1230" rx="75" ry="150" fill="#dfe9e1" opacity=".07" filter="url(#soft)"/>
+  <ellipse cx="1113" cy="1295" rx="70" ry="135" fill="#dfe9e1" opacity=".055" filter="url(#soft)"/>
+
+  <!-- rain -->
+  <g stroke="#d2d8d4" stroke-opacity=".12" stroke-width="2">
+    <path d="m80 150 160 420M175 0l150 395M365 110l185 485M480 0l130 340M790 90l210 550M980 0l170 445M1030 270l160 420M20 630l180 472M720 650l170 446M1015 800l165 433M290 760l130 341"/>
+  </g>
+  <g stroke="#d2d8d4" stroke-opacity=".05" stroke-width="1">
+    <path d="m110 80 230 600M340 190l160 420M610 20l250 660M850 160l210 550M35 810l180 472M520 760l160 420M1040 620l140 367"/>
+  </g>
+
+  <path d="M0 1100c260-60 415 65 640 0s349-33 560 0v400H0Z" fill="url(#fog)"/>
+  <rect width="1200" height="1500" fill="transparent" filter="url(#grain)"/>
+  <rect x="18" y="18" width="1164" height="1464" fill="none" stroke="#bfc5c0" stroke-opacity=".08" stroke-width="2"/>
+</svg>

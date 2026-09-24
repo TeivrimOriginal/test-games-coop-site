@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0a09">
+  <meta name="description" content="ПЕРЕСМЕНКА — кооперативный хоррор-симулятор работяг. Три локации, выбранная профессия и то, что просыпается, когда вы включаете свет.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ПЕРЕСМЕНКА — работа не закончилась">
+  <meta property="og:description" content="Кооперативный хоррор о смене, которую забыли эвакуировать.">
+  <title>ПЕРЕСМЕНКА — кооперативный хоррор</title>
+  <link rel="icon" href="assets/site/images/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="site-noise" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="ПЕРЕСМЕНКА — на главную">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" role="img">
+          <path d="M6 24V8h4.5l5.5 8 5.5-8H26v16h-4.5v-8.7L16 24l-5.5-8.7V24H6Z"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <strong>ПЕРЕСМЕНКА</strong>
+        <small>CO-OP HORROR / UNIT 04</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+      <span></span><span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Основная навигация" data-nav>
+      <a href="#mechanics">Механики</a>
+      <a href="#roles">Профессии</a>
+      <a href="#levels">Локации</a>
+      <a href="#status">Статус</a>
+      <a class="nav-cta" href="#join">Вступить в смену <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero__grid container">
+        <div class="hero__copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span> Игра находится в разработке</div>
+          <h1>
+            <span>Работа</span>
+            <span class="outline-text">не закончилась</span>
+          </h1>
+          <p class="hero__lead">
+            Кооперативный хоррор о тех, кто выполняет план, чинит чужое и идёт домой по пустому коридору. Но техника выходит из строя. Свет возвращается. А с вами — что-то нет.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#join">Начать смену <span aria-hidden="true">↓</span></a>
+            <a class="button button--ghost" href="#mechanics"><span class="play-icon" aria-hidden="true">▶</span> Изучить механики</a>
+          </div>
+          <dl class="hero__facts" aria-label="Особенности игры">
+            <div><dt>03</dt><dd>локации</dd></div>
+            <div><dt>04</dt><dd>профессии</dd></div>
+            <div><dt>0</dt><dd>гарантированных выходов</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero__visual reveal" data-reveal-delay="1">
+          <div class="scene-frame" data-tilt>
+            <img src="assets/site/images/tower.svg" alt="Панорама тёмного небоскрёба во время грозы" width="1200" height="1500">
+            <div class="scene-frame__scan"></div>
+            <div class="scene-frame__coordinates">
+              <span>ОБЪЕКТ 01</span>
+              <span>55°45′21″ N</span>
+            </div>
+            <div class="scene-frame__location">
+              <span class="location-index">01</span>
+              <span><small>СЕКТОР A</small>Небоскрёб «Вертикаль»</span>
+            </div>
+            <div class="scene-frame__stamp">НЕ<br>ПОКИДАТЬ<br>ОБЪЕКТ</div>
+          </div>
+
+          <aside class="smartwatch" aria-label="Демонстрация смарт-часов">
+            <div class="smartwatch__header">
+              <span>SMARTWATCH / S-04</span>
+              <span class="signal" aria-label="Сигнал активен"><i></i><i></i><i></i></span>
+            </div>
+            <div class="smartwatch__pulse" data-pulse-ring>
+              <svg viewBox="0 0 180 90" aria-hidden="true">
+                <path class="pulse-glow" d="M5 57h34l8-24 13 47 13-36 8 17h21l8-11 9 18 10-29 9 18h42"/>
+                <path class="pulse-line" d="M5 57h34l8-24 13 47 13-36 8 17h21l8-11 9 18 10-29 9 18h42"/>
+              </svg>
+              <div><strong data-pulse-value>118</strong><span>УДАР/МИН</span></div>
+            </div>
+            <div class="smartwatch__warning"><span>!</span> Уровень тревоги: <b>высокий</b></div>
+            <div class="smartwatch__time"><span data-clock>04:17</span><small>СМЕНА НЕ ЗАВЕРШЕНА</small></div>
+          </aside>
+
+          <div class="hero__code" aria-hidden="true">P.S. // 017</div>
+        </div>
+      </div>
+
+      <div class="warning-ticker" aria-label="Предупреждение">
+        <div class="warning-ticker__track">
+          <span>Свет включён</span><i>◆</i><span>Они слышат вас</span><i>◆</i><span>Не оставляйтесь поодиночке</span><i>◆</i><span>Проверьте давление</span><i>◆</i>
+          <span aria-hidden="true">Свет включён</span><i aria-hidden="true">◆</i><span aria-hidden="true">Они слышат вас</span><i aria-hidden="true">◆</i><span aria-hidden="true">Не оставляйтесь поодиночке</span><i aria-hidden="true">◆</i><span aria-hidden="true">Проверьте давление</span><i aria-hidden="true">◆</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="manifesto section" aria-labelledby="manifesto-title">
+      <div class="container">
+        <p class="section-kicker reveal">/ Команда приступает к работе</p>
+        <h2 class="manifesto__title reveal" id="manifesto-title">
+          Вы не спасатели.<br>
+          Вы — <span>смена, которую забыли эвакуировать.</span>
+        </h2>
+        <div class="manifesto__footer reveal">
+          <p>Возьмите профессию. Изучите инструкции. Держитесь вместе. Но сначала решите, стоит ли включать свет.</p>
+          <div class="shift-code" aria-label="Номер смены 04:17">
+            <span>НОЧНАЯ СМЕНА</span>
+            <strong>04:17</strong>
+            <small>НЕ ЗАСЧИТАНА</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mechanics section" id="mechanics" aria-labelledby="mechanics-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <p class="section-kicker">/ Рабочие протоколы</p>
+            <h2 id="mechanics-title">Тело помнит<br>раньше, чем вы</h2>
+          </div>
+          <p>Голод, холод, усталость и страх — не декорации. Они превращают рабочий инструмент в причину гибели всей группы.</p>
+        </div>
+
+        <div class="system-grid">
+          <article class="system-card system-card--wide reveal">
+            <div class="system-card__number">01</div>
+            <div class="watch-demo" data-watch-demo>
+              <div class="watch-demo__strap"></div>
+              <div class="watch-demo__face">
+                <div class="watch-demo__top"><span>04:17</span><span>S-04</span></div>
+                <div class="watch-demo__bpm">
+                  <small>ПУЛЬС</small>
+                  <strong data-pulse-value>118</strong>
+                  <span>BPM</span>
+                </div>
+                <div class="watch-demo__heart" aria-hidden="true">
+                  <svg viewBox="0 0 42 38">
+                    <path d="M21 35S3 24 3 11C3 4 12 1 17 7L21 11l4-4c5-6 14-3 14 4 0 13-18 24-18 24Z"/>
+                  </svg>
+                </div>
+                <div class="watch-demo__stats">
+                  <span><i style="--value: 68%"></i>ГОЛОД <b>68</b></span>
+                  <span><i style="--value: 41%"></i>СИЛЫ <b>41</b></span>
+                  <span><i style="--value: 16%"></i>ТЕПЛО <b>16</b></span>
+                </div>
+              </div>
+            </div>
+            <div class="system-card__copy">
+              <span class="system-label">Смарт-часы</span>
+              <h3>Показания, которые нельзя отключить</h3>
+              <p>На запястье — голод, выносливость, температура и пульс. Чем выше пульс, тем отчётливее слышит вас то, что прячется в темноте.</p>
+              <button class="text-button" type="button" data-calm-button>Сбросить пульс <span>−</span></button>
+            </div>
+          </article>
+
+          <article class="system-card reveal" data-reveal-delay="1">
+            <div class="system-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M9 12h30v25H9zM15 18h8v7h-8zM27 18h6v3h-6zM27 24h6v3h-6zM15 30h18"/><path d="m20 7 4 5 4-5"/></svg>
+            </div>
+            <div class="system-card__number">02</div>
+            <span class="system-label">Профессии</span>
+            <h3>Ваша ценность знакома только вам</h3>
+            <p>Электрик, инженер, такелажник и медик получают доступ к разным инструментам и книгам. Умения ускоряются от практики, но знания не передаются автоматически.</p>
+          </article>
+
+          <article class="system-card system-card--dark reveal" data-reveal-delay="2">
+            <div class="system-card__number">03</div>
+            <div class="light-state">
+              <span class="light-state__off"><i></i>БЕЗ ТОКА</span>
+              <div class="light-state__track"><i></i><b></b></div>
+              <span class="light-state__on"><i></i>ПОД НАПРЯЖЕНИЕМ</span>
+            </div>
+            <span class="system-label">Призраки</span>
+            <h3>До света они шалят.<br>После — охотятся.</h3>
+            <p>Что-то тянет провод, поднимает паллету, дышит за плечом. Включите питание — и тишина закончится.</p>
+          </article>
+        </div>
+
+        <div class="fear-rule reveal">
+          <div class="fear-rule__icon" aria-hidden="true"><span>!</span></div>
+          <div>
+            <span class="system-label">Протокол паники</span>
+            <h3>На критическом пульсе жертву забирает призрак</h3>
+            <p>Монстра не видят другие игроки. Для команды пациент просто падает — от аритмии или панического приступа. Антидепрессанты снижают пульс, но не убирают причину.</p>
+          </div>
+          <span class="fear-rule__tag">НЕ ЛЕЧИТ СТРАХ</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="roles section" id="roles" aria-labelledby="roles-title">
+      <div class="container">
+        <div class="section-heading section-heading--light reveal">
+          <div>
+            <p class="section-kicker">/ Выбор специалиста</p>
+            <h2 id="roles-title">Один человек.<br>Одна профессия.</h2>
+          </div>
+          <p>Выберите специализацию перед началом смены. В локациях ищите книги — они ускоряют пассивные навыки и открывают ремонт.</p>
+        </div>
+
+        <div class="role-selector reveal">
+          <div class="role-tabs" role="tablist" aria-label="Выберите профессию">
+            <button class="role-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="role-panel" id="role-electrician-tab" data-role="electrician">
+              <span class="role-tab__number">01</span>
+              <span class="role-tab__icon" aria-hidden="true">⌁</span>
+              <span><strong>Электрик</strong><small>Сила приходит с током</small></span>
+              <i aria-hidden="true">↗</i>
+            </button>
+            <button class="role-tab" type="button" role="tab" aria-selected="false" aria-controls="role-panel" id="role-engineer-tab" data-role="engineer" tabindex="-1">
+              <span class="role-tab__number">02</span>
+              <span class="role-tab__icon" aria-hidden="true">⌗</span>
+              <span><strong>Инженер</strong><small>Держит то, что рушится</small></span>
+              <i aria-hidden="true">↗</i>
+            </button>
+            <button class="role-tab" type="button" role="tab" aria-selected="false" aria-controls="role-panel" id="role-rigger-tab" data-role="rigger" tabindex="-1">
+              <span class="role-tab__number">03</span>
+              <span class="role-tab__icon" aria-hidden="true">⌁</span>
+              <span><strong>Такелажник</strong><small>Выход есть только вверх</small></span>
+              <i aria-hidden="true">↗</i>
+            </button>
+            <button class="role-tab" type="button" role="tab" aria-selected="false" aria-controls="role-panel" id="role-medic-tab" data-role="medic" tabindex="-1">
+              <span class="role-tab__number">04</span>
+              <span class="role-tab__icon" aria-hidden="true">+</span>
+              <span><strong>Медик</strong><small>Чуть дольше, чем остальные</small></span>
+              <i aria-hidden="true">↗</i>
+            </button>
+          </div>
+
+          <div class="role-panel" id="role-panel" role="tabpanel" aria-labelledby="role-electrician-tab" tabindex="0">
+            <div class="role-panel__visual" aria-hidden="true">
+              <span class="role-panel__crosshair"></span>
+              <span class="role-panel__symbol" data-role-symbol>⌁</span>
+              <small>SPECIALTY<br>LOADOUT</small>
+            </div>
+            <div class="role-panel__content">
+              <span class="role-panel__id" data-role-code>ROLE / EL-01</span>
+              <h3 data-role-title>Электрик</h3>
+              <p data-role-description>Восстанавливает питание, обходит повреждённые цепи и умеет обезвредить ловушки. Тот, кто возвращает свет, первым узнаёт, что стало тихо.</p>
+              <ul data-role-tasks>
+                <li><span>01</span>Чинит проводку и распределительные щиты</li>
+                <li><span>02</span>Управляет электроснаряжением объекта</li>
+                <li><span>03</span>Предотвращает перегрузки в сети</li>
+              </ul>
+              <div class="role-panel__skill"><span>Пассивный навык</span><strong data-role-skill>Быстрая диагностика</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="levels section" id="levels" aria-labelledby="levels-title">
+      <div class="container">
+        <div class="levels__heading reveal">
+          <div>
+            <p class="section-kicker">/ Маршрут смены</p>
+            <h2 id="levels-title">Три объекта.<br>Ни одного безопасного выхода.</h2>
+          </div>
+          <div class="levels__counter"><strong>03</strong><span>локации<br>в разработке</span></div>
+        </div>
+
+        <article class="level-card reveal">
+          <div class="level-card__visual">
+            <img src="assets/site/images/tower.svg" alt="Небоскрёб, вершина которого скрывается в тумане" width="1200" height="1500" loading="lazy">
+            <div class="level-card__altimeter" aria-hidden="true"><span>+214 м</span><i></i><span>уровень 47</span></div>
+          </div>
+          <div class="level-card__content">
+            <div class="level-card__meta"><span>01 / ГОРОД</span><span>ВЫСОТА 214 М</span></div>
+            <h3>Небоскрёб</h3>
+            <p class="level-card__summary">Долгий подъём на техническом лифте. Панорамные окна, мокрый бетон и антенна, которую никто не ремонтировал вовремя.</p>
+            <dl class="level-card__phases">
+              <div><dt>Задача</dt><dd>Помыть стеклянные панели, настроить и починить антенну на шпиле.</dd></div>
+              <div><dt>Катаклизм</dt><dd>Конструкция начинает рушиться. Лифты обесточены, связь с городом потеряна.</dd></div>
+              <div><dt>Эвакуация</dt><dd>Канал технических ходов и прыжки на соседние здания в альпинистском снаряжении.</dd></div>
+            </dl>
+            <div class="level-card__danger"><span>УГРОЗА</span><strong>ВЫСОТА / ПАДЕНИЕ</strong></div>
+          </div>
+        </article>
+
+        <article class="level-card level-card--reverse reveal">
+          <div class="level-card__visual">
+            <img src="assets/site/images/mine.svg" alt="Тёмный глубокий забой шахты с вагонеткой" width="1600" height="1100" loading="lazy">
+            <div class="level-card__altimeter" aria-hidden="true"><span>−840 м</span><i></i><span>ствол 6</span></div>
+          </div>
+          <div class="level-card__content">
+            <div class="level-card__meta"><span>02 / НЕДРА</span><span>ПОДЗЕМЕЛЬЕ</span></div>
+            <h3>Шахта</h3>
+            <p class="level-card__summary">Вагонетка уходит в темноту на несколько километров. Внизу шумит генератор, а воздух тяжелее, чем должен быть.</p>
+            <dl class="level-card__phases">
+              <div><dt>Задача</dt><dd>Электрик чинит проводку, инженер укрепляет опорные балки, группа запускает генератор.</dd></div>
+              <div><dt>Катаклизм</dt><dd>Тоннель обрушивается. Свет гаснет, а шахта перестаёт быть просто шахтой.</dd></div>
+              <div><dt>Эвакуация</dt><dd>Один держит угольный фонарь, остальные ищут уголь. Перед поджогом проверьте канарейку.</dd></div>
+            </dl>
+            <div class="level-card__danger"><span>УГРОЗА</span><strong>ГАЗ / ОБВАЛ</strong></div>
+          </div>
+        </article>
+
+        <article class="level-card reveal">
+          <div class="level-card__visual">
+            <img src="assets/site/images/cold-storage.svg" alt="Холодный склад среди подвесных туш и стеллажей" width="1600" height="1100" loading="lazy">
+            <div class="level-card__altimeter" aria-hidden="true"><span>−32°</span><i></i><span>камера 04</span></div>
+          </div>
+          <div class="level-card__content">
+            <div class="level-card__meta"><span>03 / ХОЛОД</span><span>ОБЪЕКТ «НЕКРОС»</span></div>
+            <h3>Склад-рефрижератор</h3>
+            <p class="level-card__summary">Мороз, туши на подвесах и ряды стеллажей. Здесь нельзя долго работать без движения.</p>
+            <dl class="level-card__phases">
+              <div><dt>Задача</dt><dd>Починить освещение и систему охлаждения в полной темноте.</dd></div>
+              <div><dt>Катаклизм</dt><dd>Свет включается, вместе с ним оживает система безопасности. Паллеты начинают двигаться сами.</dd></div>
+              <div><dt>Эвакуация</dt><dd>Температура падает до предела. Группа должна пережить переохлаждение и добраться до выхода.</dd></div>
+            </dl>
+            <div class="level-card__danger"><span>УГРОЗА</span><strong>МОРОЗ / ТЯЖЁЛЫЕ ГРУЗЫ</strong></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Игровая цитата">
+      <div class="quote-section__image" aria-hidden="true"></div>
+      <div class="quote-section__content reveal">
+        <span class="quote-section__label">ЗАПИСКА / ЛИСТ 17</span>
+        <blockquote>«Если слышишь стук за спиной — не оборачивайся. Сначала проверь, один ли ты».</blockquote>
+        <cite>Инструкция для ночной смены, лист 17</cite>
+      </div>
+    </section>
+
+    <section class="status section" id="status" aria-labelledby="status-title">
+      <div class="container">
+        <div class="status__grid">
+          <div class="status__intro reveal">
+            <p class="section-kicker">/ Статус проекта</p>
+            <h2 id="status-title">Сборка<br>ещё собирается.</h2>
+            <p>ПЕРЕСМЕНКА находится в разработке. Сейчас команда работает над ядром кооперативного цикла и первой вертикальной срезкой.</p>
+            <div class="status__signal"><span class="status-dot"></span><strong>СИСТЕМЫ В РАЗРАБОТКЕ</strong></div>
+          </div>
+          <ol class="roadmap">
+            <li class="is-current reveal">
+              <span class="roadmap__step">01</span>
+              <div><strong>Ядро и интерфейс</strong><p>Выбор ролей, смарт-часы, рабочие взаимодействия</p></div>
+              <span class="roadmap__status">В работе</span>
+            </li>
+            <li class="reveal">
+              <span class="roadmap__step">02</span>
+              <div><strong>Вертикальная срезка</strong><p>Полный цикл одной локации для команды</p></div>
+              <span class="roadmap__status">Следующий этап</span>
+            </li>
+            <li class="reveal">
+              <span class="roadmap__step">03</span>
+              <div><strong>Закрытое тестирование</strong><p>Баланс, сетевой код, поддержка голосовой связи</p></div>
+              <span class="roadmap__status">В планах</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="join section" id="join" aria-labelledby="join-title">
+      <div class="join__stripe" aria-hidden="true">СМЕНА ПРИНЯТА // СМЕНА ПРИНЯТА // СМЕНА ПРИНЯТА //</div>
+      <div class="container join__inner">
+        <p class="section-kicker reveal">/ Конец смены? Ещё рано.</p>
+        <h2 id="join-title" class="reveal">Не гаси свет.<br><span>Проверь состав.</span></h2>
+        <p class="reveal">Следи за проектом и возвращайся, когда следующий объект откроется.</p>
+        <div class="join__actions reveal">
+          <a class="button button--primary button--large" href="https://github.com/tntminivord123/test-games-coop" target="_blank" rel="noreferrer">Смотреть проект на GitHub <span aria-hidden="true">↗</span></a>
+          <a class="button button--ghost button--large" href="#levels">Перечитать локации</a>
+        </div>
+      </div>
+      <div class="join__shape" aria-hidden="true">
+        <span>04</span><small>ЧАСА<br>17 МИНУТ</small>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <a class="brand brand--footer" href="#top">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32"><path d="M6 24V8h4.5l5.5 8 5.5-8H26v16h-4.5v-8.7L16 24l-5.5-8.7V24H6Z"/></svg>
+        </span>
+        <span class="brand__text"><strong>ПЕРЕСМЕНКА</strong><small>CO-OP HORROR / UNIT 04</small></span>
+      </a>
+      <p>Работай. Проверяй. Держись вместе.<br>И никогда не оставайся один.</p>
+      <nav aria-label="Навигация в подвале">
+        <a href="#mechanics">Механики</a>
+        <a href="#roles">Профессии</a>
+        <a href="#levels">Локации</a>
+        <a href="#status">Разработка</a>
+      </nav>
+    </div>
+    <div class="container site-footer__bottom">
+      <span>© <span data-year>2026</span> ПЕРЕСМЕНКА</span>
+      <span>Сделано командой <a href="https://github.com/tntminivord123" target="_blank" rel="noreferrer">tntminivord123</a></span>
+      <a href="#top" aria-label="Вернуться наверх">↑ НАВЕРХ</a>
+    </div>
+  </footer>
+
+  <div class="sound-control">
+    <button type="button" aria-label="Включить фоновый звук" aria-pressed="false" data-sound-toggle>
+      <span class="sound-control__bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+      <span data-sound-label>Звук выкл.</span>
+    </button>
+  </div>
+</body>
+</html>
