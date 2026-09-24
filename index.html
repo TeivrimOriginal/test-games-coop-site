@@ -10,9 +10,8 @@
   <meta property="og:description" content="Кооперативный хоррор о смене, которую забыли эвакуировать.">
   <title>ПЕРЕСМЕНКА — кооперативный хоррор</title>
   <link rel="icon" href="assets/site/images/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/site/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/site/fonts/russo-one-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
@@ -72,7 +71,7 @@
 
         <div class="hero__visual reveal" data-reveal-delay="1">
           <div class="scene-frame" data-tilt>
-            <img src="assets/site/images/tower.svg" alt="Панорама тёмного небоскрёба во время грозы" width="1200" height="1500">
+            <img src="assets/site/images/tower.svg" alt="Панорама тёмного небоскрёба во время грозы" width="1200" height="1500" fetchpriority="high" decoding="async">
             <div class="scene-frame__scan"></div>
             <div class="scene-frame__coordinates">
               <span>ОБЪЕКТ 01</span>
