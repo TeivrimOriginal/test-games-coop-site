@@ -152,7 +152,7 @@
       title: "Электрик",
       symbol: "⌁",
       description:
-        "Восстанавливает питание, обходит повреждённые цепи и умеет обезвредить ловушки. Тот, кто возвращает свет, первым узнаёт, что стало тихо.",
+        "Восстанавливает питание, обходит повреждённые цепи и помогает безопасно запустить оборудование объекта.",
       tasks: [
         "Чинит проводку и распределительные щиты",
         "Управляет электроснаряжением объекта",
@@ -165,7 +165,7 @@
       title: "Инженер",
       symbol: "⌗",
       description:
-        "Укрепляет конструкции, разбирает завалы и понимает, какие балки ещё несут вес. Когда здание идёт ко дну, инженер решает, что можно оставить.",
+        "Укрепляет конструкции, разбирает завалы и проверяет, какие элементы ещё можно безопасно использовать.",
       tasks: [
         "Чинит опорные балки и завалы",
         "Усиливает двери, люки и перекрытия",
@@ -178,7 +178,7 @@
       title: "Такелажник",
       symbol: "⌁",
       description:
-        "Прокладывает маршруты, вяжет узлы и работает на высоте. Полоса между безопасной опорой и падением — часть его ежедневной работы.",
+        "Прокладывает маршруты, вяжет узлы и отвечает за переходы на высоте и страховку команды.",
       tasks: [
         "Устанавливает тросы, лестницы и карабины",
         "Открывает новые пути эвакуации",
@@ -191,7 +191,7 @@
       title: "Медик",
       symbol: "+",
       description:
-        "Читает показания часов, стабилизирует давление и не даёт группе разойтись. Лечит тело — но не то, что приходит после слишком высокого пульса.",
+        "Читает показания часов, стабилизирует давление и помогает группе вовремя остановиться, принять лекарство или сменить маршрут.",
       tasks: [
         "Выдаёт антидепрессанты и поддерживает группу",
         "Диагностирует переохлаждение и истощение",
@@ -256,146 +256,6 @@
       if (["ArrowUp", "ArrowLeft"].includes(event.key)) nextIndex = (index - 1 + roleTabs.length) % roleTabs.length;
       selectRole(roleTabs[nextIndex], true);
     });
-  });
-
-  // Small generated ambient sound. Audio starts only after a deliberate click.
-  const soundButton = document.querySelector("[data-sound-toggle]");
-  const soundLabel = document.querySelector("[data-sound-label]");
-  let audioContext;
-  let soundEnabled = false;
-  let soundNodes = [];
-
-  const makeNoiseBuffer = (context) => {
-    const buffer = context.createBuffer(1, context.sampleRate * 2, context.sampleRate);
-    const data = buffer.getChannelData(0);
-    let last = 0;
-    for (let i = 0; i < data.length; i += 1) {
-      const white = Math.random() * 2 - 1;
-      last = (last + 0.02 * white) / 1.02;
-      data[i] = last * 3.5;
-    }
-    return buffer;
-  };
-
-  const heartbeat = (context, output) => {
-    if (!soundEnabled) return;
-    const now = context.currentTime;
-    const beat = context.createOscillator();
-    const envelope = context.createGain();
-    beat.type = "sine";
-    beat.frequency.setValueAtTime(64, now);
-    beat.frequency.exponentialRampToValueAtTime(38, now + 0.18);
-    envelope.gain.setValueAtTime(0.0001, now);
-    envelope.gain.exponentialRampToValueAtTime(0.065, now + 0.02);
-    envelope.gain.exponentialRampToValueAtTime(0.0001, now + 0.23);
-    beat.connect(envelope);
-    envelope.connect(output);
-    beat.start(now);
-    beat.stop(now + 0.25);
-  };
-
-  const createSound = async () => {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContext) {
-      soundLabel && (soundLabel.textContent = "Не поддерживается");
-      soundButton?.setAttribute("disabled", "true");
-      return;
-    }
-
-    audioContext = audioContext || new AudioContext();
-    await audioContext.resume();
-
-    const master = audioContext.createGain();
-    const compressor = audioContext.createDynamicsCompressor();
-    master.gain.setValueAtTime(0.0001, audioContext.currentTime);
-    master.gain.exponentialRampToValueAtTime(0.16, audioContext.currentTime + 1.2);
-    compressor.threshold.value = -28;
-    master.connect(compressor);
-    compressor.connect(audioContext.destination);
-
-    const droneFilter = audioContext.createBiquadFilter();
-    droneFilter.type = "lowpass";
-    droneFilter.frequency.value = 180;
-    droneFilter.Q.value = 1.5;
-    droneFilter.connect(master);
-
-    const frequencies = [43, 57, 86];
-    const drones = frequencies.map((frequency, index) => {
-      const oscillator = audioContext.createOscillator();
-      const gain = audioContext.createGain();
-      oscillator.type = index === 1 ? "triangle" : "sine";
-      oscillator.frequency.value = frequency;
-      oscillator.detune.value = index * 3 - 2;
-      gain.gain.value = [0.22, 0.08, 0.035][index];
-      oscillator.connect(gain);
-      gain.connect(droneFilter);
-      oscillator.start();
-      return oscillator;
-    });
-
-    const noise = audioContext.createBufferSource();
-    const noiseFilter = audioContext.createBiquadFilter();
-    const noiseGain = audioContext.createGain();
-    noise.buffer = makeNoiseBuffer(audioContext);
-    noise.loop = true;
-    noiseFilter.type = "lowpass";
-    noiseFilter.frequency.value = 420;
-    noiseGain.gain.value = 0.075;
-    noise.connect(noiseFilter);
-    noiseFilter.connect(noiseGain);
-    noiseGain.connect(master);
-    noise.start();
-
-    const lfo = audioContext.createOscillator();
-    const lfoGain = audioContext.createGain();
-    lfo.frequency.value = 0.11;
-    lfoGain.gain.value = 0.04;
-    lfo.connect(lfoGain);
-    lfoGain.connect(master.gain);
-    lfo.start();
-
-    soundNodes = { master, drones, noise, lfo };
-    heartbeat(audioContext, master);
-    const heartbeatTimer = window.setInterval(() => heartbeat(audioContext, master), 1320);
-    soundNodes.heartbeatTimer = heartbeatTimer;
-  };
-
-  const stopSound = () => {
-    if (!audioContext || !soundNodes.master) return;
-    const now = audioContext.currentTime;
-    soundNodes.master.gain.cancelScheduledValues(now);
-    soundNodes.master.gain.setValueAtTime(Math.max(0.0001, soundNodes.master.gain.value), now);
-    soundNodes.master.gain.exponentialRampToValueAtTime(0.0001, now + 0.45);
-
-    window.setTimeout(() => {
-      window.clearInterval(soundNodes.heartbeatTimer);
-      soundNodes.drones?.forEach((node) => node.stop());
-      soundNodes.noise?.stop();
-      soundNodes.lfo?.stop();
-      audioContext?.close();
-      audioContext = null;
-      soundNodes = [];
-    }, reducedMotion ? 0 : 500);
-  };
-
-  soundButton?.addEventListener("click", async () => {
-    soundEnabled = !soundEnabled;
-    soundButton.setAttribute("aria-pressed", String(soundEnabled));
-    soundButton.setAttribute(
-      "aria-label",
-      soundEnabled ? "Выключить фоновый звук" : "Включить фоновый звук",
-    );
-    if (soundLabel) soundLabel.textContent = soundEnabled ? "Звук вкл." : "Звук выкл.";
-
-    try {
-      if (soundEnabled) await createSound();
-      else stopSound();
-    } catch (error) {
-      soundEnabled = false;
-      soundButton.setAttribute("aria-pressed", "false");
-      if (soundLabel) soundLabel.textContent = "Звук недоступен";
-      console.warn("Ambient sound could not be started:", error);
-    }
   });
 
   // Footer date
