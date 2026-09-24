@@ -258,6 +258,148 @@
     });
   });
 
+  // Lightweight local content editor. It never sends credentials or content
+  // anywhere; the export button produces a JSON file for the team to publish.
+  const editableNodes = [...document.querySelectorAll("[data-edit]")];
+  const contentStorageKey = "persmenka-content-v1";
+  const editorPanel = document.querySelector("[data-editor-panel]");
+  const editorFields = document.querySelector("[data-editor-fields]");
+  const editorStatus = document.querySelector("[data-editor-status]");
+  const editorLaunch = document.querySelector("[data-editor-launch]");
+  const editorInputs = new Map();
+  const initialContent = Object.fromEntries(
+    editableNodes.map((node) => [node.dataset.edit, node.textContent.trim()]),
+  );
+
+  const readSavedContent = () => {
+    try {
+      return JSON.parse(window.localStorage.getItem(contentStorageKey) || "{}") || {};
+    } catch {
+      return {};
+    }
+  };
+
+  let savedContent = readSavedContent();
+
+  const applyContent = (content) => {
+    editableNodes.forEach((node) => {
+      const value = content[node.dataset.edit];
+      if (typeof value === "string") node.textContent = value;
+    });
+  };
+
+  applyContent(savedContent);
+
+  const setEditorStatus = (message) => {
+    if (editorStatus) editorStatus.textContent = message;
+  };
+
+  const renderEditorFields = () => {
+    if (!editorFields) return;
+    editorFields.innerHTML = "";
+    editorInputs.clear();
+
+    editableNodes.forEach((node) => {
+      const key = node.dataset.edit;
+      const wrapper = document.createElement("div");
+      const label = document.createElement("label");
+      const textarea = document.createElement("textarea");
+      wrapper.className = "editor-field";
+      label.textContent = node.dataset.editLabel || key;
+      label.htmlFor = `editor-${key}`;
+      textarea.id = `editor-${key}`;
+      textarea.value = savedContent[key] ?? node.textContent.trim();
+      textarea.rows = Math.min(5, Math.max(2, textarea.value.split("\n").length + 1));
+      wrapper.append(label, textarea);
+      editorFields.append(wrapper);
+      editorInputs.set(key, textarea);
+
+      node.addEventListener("input", () => {
+        textarea.value = node.textContent.trim();
+      });
+    });
+  };
+
+  const setEditorOpen = (open) => {
+    if (!editorPanel) return;
+    editorPanel.hidden = !open;
+    document.body.classList.toggle("editor-open", open);
+    editableNodes.forEach((node) => {
+      node.contentEditable = String(open);
+      node.classList.toggle("is-editable", open);
+    });
+
+    if (open) {
+      renderEditorFields();
+      window.setTimeout(() => editorPanel.querySelector("textarea")?.focus(), 0);
+      setEditorStatus("");
+    }
+  };
+
+  const readEditorValues = () => {
+    const values = {};
+    editorInputs.forEach((input, key) => {
+      values[key] = input.value.trim();
+    });
+    return values;
+  };
+
+  const saveEditorContent = () => {
+    savedContent = readEditorValues();
+    try {
+      window.localStorage.setItem(contentStorageKey, JSON.stringify(savedContent));
+    } catch {
+      setEditorStatus("Не удалось сохранить в этом браузере.");
+      return;
+    }
+    applyContent(savedContent);
+    setEditorStatus("Сохранено в этом браузере.");
+  };
+
+  const exportEditorContent = () => {
+    const values = Object.keys(editorInputs).length ? readEditorValues() : savedContent;
+    const blob = new Blob([JSON.stringify(values, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "persmenka-content.json";
+    link.click();
+    URL.revokeObjectURL(url);
+    setEditorStatus("JSON подготовлен для публикации.");
+  };
+
+  const resetEditorContent = () => {
+    try {
+      window.localStorage.removeItem(contentStorageKey);
+    } catch {
+      // The visual reset still works when storage is unavailable.
+    }
+    savedContent = {};
+    applyContent(initialContent);
+    renderEditorFields();
+    setEditorStatus("Возвращены исходные тексты.");
+  };
+
+  editorLaunch?.addEventListener("click", () => setEditorOpen(editorPanel?.hidden !== false));
+  document.querySelectorAll("[data-editor-close]").forEach((button) => {
+    button.addEventListener("click", () => setEditorOpen(false));
+  });
+  document.querySelector("[data-editor-save]")?.addEventListener("click", saveEditorContent);
+  document.querySelector("[data-editor-export]")?.addEventListener("click", exportEditorContent);
+  document.querySelector("[data-editor-reset]")?.addEventListener("click", resetEditorContent);
+
+  window.addEventListener("keydown", (event) => {
+    if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key.toLowerCase() === "e") {
+      event.preventDefault();
+      setEditorOpen(editorPanel?.hidden !== false);
+    }
+    if (event.key === "Escape" && editorPanel && !editorPanel.hidden) setEditorOpen(false);
+  });
+
+  if (new URLSearchParams(window.location.search).get("edit") === "1") {
+    window.setTimeout(() => setEditorOpen(true), 450);
+  }
+
   // Footer date
   document.querySelectorAll("[data-year]").forEach((node) => {
     node.textContent = String(new Date().getFullYear());

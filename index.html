@@ -53,10 +53,10 @@
         <div class="hero__copy reveal">
           <div class="eyebrow"><span class="status-dot"></span> Проект в разработке</div>
           <h1>
-            <span>Ночная</span>
-            <span class="outline-text">смена</span>
+            <span data-edit="heroTitleTop" data-edit-label="Заголовок — первая строка">Ночная</span>
+            <span class="outline-text" data-edit="heroTitleBottom" data-edit-label="Заголовок — вторая строка">смена</span>
           </h1>
-          <p class="hero__lead">
+          <p class="hero__lead" data-edit="heroLead" data-edit-label="Описание игры">
             Кооперативный хоррор о работягах, которым приходится выполнять план в нерабочем здании. Чините технику, распределяйте роли и решайте, стоит ли включать свет.
           </p>
           <div class="hero__actions">
@@ -121,12 +121,38 @@
           <span>условиях.</span>
         </h2>
         <div class="manifesto__footer reveal">
-          <p>Выберите профессию, изучите инструкции и выполните план. Если оборудование сломается, аварийный маршрут придётся искать вместе.</p>
+          <p data-edit="manifestoText" data-edit-label="Описание проекта">Выберите профессию, изучите инструкции и выполните план. Если оборудование сломается, аварийный маршрут придётся искать вместе.</p>
           <div class="shift-code" aria-label="Формат проекта">
             <span>ФОРМАТ</span>
             <strong>CO-OP</strong>
             <small>В РАЗРАБОТКЕ</small>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="loop section" id="loop" aria-labelledby="loop-title">
+      <div class="container">
+        <div class="loop__heading reveal">
+          <p class="section-kicker">/ Как устроена смена</p>
+          <h2 id="loop-title">Три шага<br><span>до эвакуации</span></h2>
+        </div>
+        <div class="loop__grid">
+          <article class="loop-card reveal">
+            <span class="loop-card__number">01</span>
+            <h3 data-edit="loopOneTitle" data-edit-label="Шаг 1 — заголовок">Выберите профессию</h3>
+            <p data-edit="loopOneText" data-edit-label="Шаг 1 — описание">Электрик, инженер, такелажник или медик — у каждого свой набор инструментов.</p>
+          </article>
+          <article class="loop-card reveal" data-reveal-delay="1">
+            <span class="loop-card__number">02</span>
+            <h3 data-edit="loopTwoTitle" data-edit-label="Шаг 2 — заголовок">Выполните работу</h3>
+            <p data-edit="loopTwoText" data-edit-label="Шаг 2 — описание">Чините технику, читайте инструкции и решайте, какой маршрут безопаснее.</p>
+          </article>
+          <article class="loop-card reveal" data-reveal-delay="2">
+            <span class="loop-card__number">03</span>
+            <h3 data-edit="loopThreeTitle" data-edit-label="Шаг 3 — заголовок">Включите питание</h3>
+            <p data-edit="loopThreeText" data-edit-label="Шаг 3 — описание">Свет возвращает работу, но меняет поведение призраков и повышает риск для команды.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -138,7 +164,7 @@
             <p class="section-kicker">/ Основные механики</p>
             <h2 id="mechanics-title">Показания<br>и решения</h2>
           </div>
-          <p>Состояние игроков и состояние оборудования напрямую влияют на маршрут, ресурсы и то, сможет ли команда покинуть объект.</p>
+          <p data-edit="mechanicsLead" data-edit-label="Описание механик">Состояние игроков и состояние оборудования напрямую влияют на маршрут, ресурсы и то, сможет ли команда покинуть объект.</p>
         </div>
 
         <div class="system-grid">
@@ -168,7 +194,7 @@
             <div class="system-card__copy">
               <span class="system-label">Смарт-часы</span>
               <h3>Показания, которые важны</h3>
-              <p>На запястье — голод, выносливость, температура и пульс. Следите за ними, чтобы вовремя сделать паузу и принять решение.</p>
+              <p data-edit="watchText" data-edit-label="Смарт-часы — описание">На запястье — голод, выносливость, температура и пульс. Следите за ними, чтобы вовремя сделать паузу и принять решение.</p>
               <button class="text-button" type="button" data-calm-button>Сбросить пульс <span>−</span></button>
             </div>
           </article>
@@ -180,7 +206,7 @@
             <div class="system-card__number">02</div>
             <span class="system-label">Профессии</span>
             <h3>У каждого своя работа</h3>
-            <p>Электрик, инженер, такелажник и медик получают разные инструменты и задачи. Книги профессий ускоряют обучение и открывают новые варианты ремонта.</p>
+            <p data-edit="rolesCardText" data-edit-label="Профессии — описание">Электрик, инженер, такелажник и медик получают разные инструменты и задачи. Книги профессий ускоряют обучение и открывают новые варианты ремонта.</p>
           </article>
 
           <article class="system-card system-card--dark reveal" data-reveal-delay="2">
@@ -192,7 +218,7 @@
             </div>
             <span class="system-label">Призраки</span>
             <h3>Питание меняет<br>поведение призраков</h3>
-            <p>До подачи электричества они мешают работе. После — становятся опаснее для каждого, кто остаётся рядом с включённой сетью.</p>
+            <p data-edit="ghostsText" data-edit-label="Призраки — описание">До подачи электричества они мешают работе. После — становятся опаснее для каждого, кто остаётся рядом с включённой сетью.</p>
           </article>
         </div>
 
@@ -201,7 +227,7 @@
           <div>
             <span class="system-label">Высокий пульс</span>
             <h3>Критическое состояние игрока</h3>
-            <p>На критическом пульсе игрок может погибнуть. Призрака никто из команды не увидит: для остальных это будет выглядеть как сердечный приступ. Антидепрессанты помогают снизить пульс.</p>
+            <p data-edit="pulseText" data-edit-label="Высокий пульс — описание">На критическом пульсе игрок может погибнуть. Призрака никто из команды не увидит: для остальных это будет выглядеть как сердечный приступ. Антидепрессанты помогают снизить пульс.</p>
           </div>
           <span class="fear-rule__tag">СЛЕДИТЕ ЗА ПОКАЗАНИЯМИ</span>
         </div>
@@ -215,7 +241,7 @@
             <p class="section-kicker">/ Роли в команде</p>
             <h2 id="roles-title">Выберите,<br>чем будете полезны</h2>
           </div>
-          <p>В начале смены каждый игрок выбирает профессию. Книги на локациях ускоряют обучение и открывают дополнительные способы ремонта.</p>
+          <p data-edit="rolesLead" data-edit-label="Описание ролей">В начале смены каждый игрок выбирает профессию. Книги на локациях ускоряют обучение и открывают дополнительные способы ремонта.</p>
         </div>
 
         <div class="role-selector reveal">
@@ -286,7 +312,7 @@
           <div class="level-card__content">
             <div class="level-card__meta"><span>01 / ГОРОД</span><span>ВЫСОТА 214 М</span></div>
             <h3>Небоскрёб</h3>
-            <p class="level-card__summary">Долгий подъём на техническом лифте. Панорамные окна, мокрый бетон и антенна, которую никто не ремонтировал вовремя.</p>
+            <p class="level-card__summary" data-edit="levelOneText" data-edit-label="Локация 1 — описание">Долгий подъём на техническом лифте. Панорамные окна, мокрый бетон и антенна, которую никто не ремонтировал вовремя.</p>
             <dl class="level-card__phases">
               <div><dt>Задача</dt><dd>Помыть стеклянные панели, настроить и починить антенну на шпиле.</dd></div>
               <div><dt>Катаклизм</dt><dd>Конструкция начинает рушиться. Лифты обесточены, связь с городом потеряна.</dd></div>
@@ -304,7 +330,7 @@
           <div class="level-card__content">
             <div class="level-card__meta"><span>02 / НЕДРА</span><span>ПОДЗЕМЕЛЬЕ</span></div>
             <h3>Шахта</h3>
-            <p class="level-card__summary">Вагонетка уходит в темноту на несколько километров. Внизу шумит генератор, а воздух тяжелее, чем должен быть.</p>
+            <p class="level-card__summary" data-edit="levelTwoText" data-edit-label="Локация 2 — описание">Вагонетка уходит в темноту на несколько километров. Внизу шумит генератор, а воздух тяжелее, чем должен быть.</p>
             <dl class="level-card__phases">
               <div><dt>Задача</dt><dd>Электрик чинит проводку, инженер укрепляет опорные балки, группа запускает генератор.</dd></div>
               <div><dt>Катаклизм</dt><dd>Тоннель обрушивается. Свет гаснет, а шахта перестаёт быть просто шахтой.</dd></div>
@@ -322,7 +348,7 @@
           <div class="level-card__content">
             <div class="level-card__meta"><span>03 / ХОЛОД</span><span>ОБЪЕКТ «НЕКРОС»</span></div>
             <h3>Склад-рефрижератор</h3>
-            <p class="level-card__summary">Мороз, туши на подвесах и ряды стеллажей. Здесь нельзя долго работать без движения.</p>
+            <p class="level-card__summary" data-edit="levelThreeText" data-edit-label="Локация 3 — описание">Мороз, туши на подвесах и ряды стеллажей. Здесь нельзя долго работать без движения.</p>
             <dl class="level-card__phases">
               <div><dt>Задача</dt><dd>Починить освещение и систему охлаждения в полной темноте.</dd></div>
               <div><dt>Катаклизм</dt><dd>Свет включается, вместе с ним оживает система безопасности. Паллеты начинают двигаться сами.</dd></div>
@@ -341,34 +367,34 @@
             <p class="section-kicker">/ Разработчики</p>
             <h2 id="team-title">Над проектом<br><span>работают трое.</span></h2>
           </div>
-          <p>Небольшая команда с разными навыками: от архитектуры игры и кода до моделей, монтажа и анимации.</p>
+          <p data-edit="teamLead" data-edit-label="Описание команды">Небольшая команда с разными навыками: от архитектуры игры и кода до моделей, монтажа и анимации.</p>
         </div>
 
         <div class="team__grid">
           <article class="team-card reveal">
             <div class="team-card__top"><span>01</span><span>Руководитель</span></div>
             <div class="team-card__avatar" aria-hidden="true">Б</div>
-            <h3>Богдан</h3>
-            <p class="team-card__role">Главный разработчик</p>
-            <p class="team-card__bio">Отвечает за архитектуру, геймплей и общую сборку проекта.</p>
+            <h3 data-edit="devOneName" data-edit-label="Разработчик 1 — имя">Богдан</h3>
+            <p class="team-card__role" data-edit="devOneRole" data-edit-label="Разработчик 1 — роль">Главный разработчик</p>
+            <p class="team-card__bio" data-edit="devOneBio" data-edit-label="Разработчик 1 — описание">Отвечает за архитектуру, геймплей и общую сборку проекта.</p>
             <div class="team-card__tags"><span>Архитектура</span><span>Gameplay</span><span>Код</span></div>
           </article>
 
           <article class="team-card team-card--accent reveal" data-reveal-delay="1">
             <div class="team-card__top"><span>02</span><span>Универсальный</span></div>
             <div class="team-card__avatar" aria-hidden="true">Д</div>
-            <h3>Данила</h3>
-            <p class="team-card__role">Разработчик</p>
-            <p class="team-card__bio">Берёт на себя широкий круг задач: игровые системы, интерфейс, инструменты и технические решения.</p>
+            <h3 data-edit="devTwoName" data-edit-label="Разработчик 2 — имя">Данила</h3>
+            <p class="team-card__role" data-edit="devTwoRole" data-edit-label="Разработчик 2 — роль">Разработчик</p>
+            <p class="team-card__bio" data-edit="devTwoBio" data-edit-label="Разработчик 2 — описание">Берёт на себя широкий круг задач: игровые системы, интерфейс, инструменты и технические решения.</p>
             <div class="team-card__tags"><span>Системы</span><span>UI</span><span>Инструменты</span></div>
           </article>
 
           <article class="team-card reveal" data-reveal-delay="2">
             <div class="team-card__top"><span>03</span><span>3D / Motion</span></div>
             <div class="team-card__avatar" aria-hidden="true">С</div>
-            <h3>Саша</h3>
-            <p class="team-card__role">3D-модели, монтаж и анимации</p>
-            <p class="team-card__bio">Создаёт модели и визуальные сцены, отвечает за монтаж, анимацию и их интеграцию в игру.</p>
+            <h3 data-edit="devThreeName" data-edit-label="Разработчик 3 — имя">Саша</h3>
+            <p class="team-card__role" data-edit="devThreeRole" data-edit-label="Разработчик 3 — роль">3D-модели, монтаж и анимации</p>
+            <p class="team-card__bio" data-edit="devThreeBio" data-edit-label="Разработчик 3 — описание">Создаёт модели и визуальные сцены, отвечает за монтаж, анимацию и их интеграцию в игру.</p>
             <div class="team-card__tags"><span>3D</span><span>Монтаж</span><span>Анимация</span></div>
           </article>
         </div>
@@ -381,7 +407,7 @@
           <div class="status__intro reveal">
             <p class="section-kicker">/ Статус проекта</p>
             <h2 id="status-title">Проект<br>в работе</h2>
-            <p>Сейчас команда собирает ядро кооперативного цикла, рабочие локации и первую вертикальную срезку.</p>
+            <p data-edit="statusText" data-edit-label="Описание статуса">Сейчас команда собирает ядро кооперативного цикла, рабочие локации и первую вертикальную срезку.</p>
             <div class="status__signal"><span class="status-dot"></span><strong>ИГРА В РАЗРАБОТКЕ</strong></div>
           </div>
           <ol class="roadmap">
@@ -409,7 +435,7 @@
       <div class="container join__inner">
         <p class="section-kicker reveal">/ Следить за проектом</p>
         <h2 id="join-title" class="reveal">Скоро<br><span>покажем больше.</span></h2>
-        <p class="reveal">Сейчас игра находится в разработке. Можно следить за изменениями в репозитории и возвращаться, когда откроется следующий этап.</p>
+        <p class="reveal" data-edit="joinText" data-edit-label="Текст в конце страницы">Сейчас игра находится в разработке. Можно следить за изменениями в репозитории и возвращаться, когда откроется следующий этап.</p>
         <div class="join__actions reveal">
           <a class="button button--primary button--large" href="https://github.com/TeivrimOriginal/test-games-coop-site" target="_blank" rel="noreferrer">Открыть репозиторий <span aria-hidden="true">↗</span></a>
           <a class="button button--ghost button--large" href="#mechanics">Посмотреть механики</a>
@@ -426,7 +452,7 @@
         </span>
         <span class="brand__text"><strong>ПЕРЕСМЕНКА</strong><small>CO-OP HORROR / UNIT 04</small></span>
       </a>
-      <p>Игра в разработке. Команда работает над механиками, локациями и визуальной частью проекта.</p>
+      <p data-edit="footerText" data-edit-label="Текст в подвале">Игра в разработке. Команда работает над механиками, локациями и визуальной частью проекта.</p>
       <nav aria-label="Навигация в подвале">
         <a href="#mechanics">Механики</a>
         <a href="#roles">Профессии</a>
@@ -439,8 +465,27 @@
       <span>© <span data-year>2026</span> ПЕРЕСМЕНКА</span>
       <span>Сделано командой <a href="https://github.com/tntminivord123" target="_blank" rel="noreferrer">tntminivord123</a></span>
       <a href="#top" aria-label="Вернуться наверх">↑ НАВЕРХ</a>
+      <button class="editor-launch" type="button" data-editor-launch>Редактировать текст</button>
     </div>
   </footer>
+
+  <aside class="editor-panel" data-editor-panel hidden aria-labelledby="editor-title" role="dialog" aria-modal="true">
+    <div class="editor-panel__head">
+      <div>
+        <span class="editor-panel__kicker">PERSMENKA / CONTENT</span>
+        <h2 id="editor-title">Режим редактора</h2>
+      </div>
+      <button class="editor-panel__close" type="button" data-editor-close aria-label="Закрыть редактор">×</button>
+    </div>
+    <p class="editor-panel__note">Изменения сохраняются только в этом браузере. Для публикации для всех сохрани JSON и отправь его команде.</p>
+    <div class="editor-panel__fields" data-editor-fields></div>
+    <div class="editor-panel__actions">
+      <button class="button button--primary" type="button" data-editor-save>Сохранить</button>
+      <button class="button button--ghost" type="button" data-editor-export>Скачать JSON</button>
+      <button class="editor-panel__reset" type="button" data-editor-reset>Сбросить</button>
+    </div>
+    <p class="editor-panel__status" data-editor-status aria-live="polite"></p>
+  </aside>
 
 </body>
 </html>
